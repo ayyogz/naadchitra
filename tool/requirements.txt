@@ -1,0 +1,12 @@
+# Only needed to regenerate ML assets (./setup.sh --regen-ml). Not needed to build the app.
+torch
+torchvision
+onnx
+onnxruntime
+numpy
+pillow
+# note extraction (tool/extract_notes.py) - also needs ffmpeg on PATH
+librosa
+soundfile
+scipy
+numba

@@ -1,40 +1,48 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+# Naadchitra setup.
+#   ./setup.sh             -> check toolchain + fetch Flutter dependencies (enough to build the app)
+#   ./setup.sh --regen-ml  -> additionally rebuild the ONNX model and reference embeddings
+#                             in a local .venv (only needed if you change model/photos)
+set -euo pipefail
 cd "$(dirname "$0")"
 
-VENV=/home/ayaan/code/SIH/paddleocr_venv
-FLUTTER=/home/ayaan/development/flutter/bin/flutter
-PYTHON=$VENV/bin/python
-PIP=$VENV/bin/pip
+echo "=== Naadchitra setup ==="
 
-echo "=== Naadchitra Setup ==="
-
-# Step 1: Install Python dependencies
-echo "[1/4] Installing Python deps..."
-$PIP install torch torchvision onnx onnxruntime pillow 2>&1 | tail -3
-
-# Step 2: Export MobileNet V3 Small feature extractor to ONNX
-echo "[2/4] Exporting MobileNet model to ONNX..."
-$PYTHON tool/export_model.py --out assets/models/mobilenet_v3_small_fe.onnx --check
-
-# Step 3: Compute embeddings from reference images (if any exist)
-echo "[3/4] Computing reference embeddings..."
-if [ -d assets/refs/images/sitar ] || [ -d assets/refs/images/tabla ]; then
-    $PYTHON tool/compute_embeddings.py \
-        --model assets/models/mobilenet_v3_small_fe.onnx \
-        --refs assets/refs/images \
-        --out assets/refs/embeddings.json \
-        --check
-else
-    echo "  No reference images found — using placeholder embeddings."
-    echo "  Add images to assets/refs/images/<instrument>/ and rerun this script."
+if ! command -v flutter >/dev/null 2>&1; then
+  echo "ERROR: flutter is not on your PATH."
+  echo "Install it from https://docs.flutter.dev/get-started/install and re-run."
+  exit 1
 fi
 
-# Step 4: Get dependencies
-echo "[4/4] Getting Flutter dependencies..."
-$FLUTTER pub get
+if ! command -v java >/dev/null 2>&1; then
+  echo "WARNING: java not found. Install JDK 21 (Android builds need it)."
+else
+  echo "Java:    $(java -version 2>&1 | head -1)"
+fi
 
-echo ""
-echo "=== Setup complete ==="
-echo "To build APK: $FLUTTER build apk --debug"
-echo "To run on device: $FLUTTER run"
+echo "Flutter: $(flutter --version 2>/dev/null | head -1)"
+
+echo "[1/2] Getting Flutter dependencies..."
+flutter pub get
+
+if [[ "${1:-}" == "--regen-ml" ]]; then
+  echo "[2/2] Rebuilding ML assets in .venv ..."
+  python3 -m venv .venv
+  # shellcheck disable=SC1091
+  source .venv/bin/activate
+  pip install --upgrade pip
+  pip install -r tool/requirements.txt
+  python tool/export_model.py --out assets/models/mobilenet_v3_small_fe.onnx --check
+  python tool/compute_embeddings.py \
+    --model assets/models/mobilenet_v3_small_fe.onnx \
+    --refs assets/refs/images \
+    --out assets/refs/embeddings.json \
+    --check
+else
+  echo "[2/2] Skipping ML rebuild (model + embeddings are already committed)."
+fi
+
+echo
+echo "=== Done ==="
+echo "Run on a connected phone:  flutter run"
+echo "Build release APKs:        flutter build apk --release --split-per-abi"

@@ -1,30 +1,25 @@
-# Naadchitra (SIH 2026 · PS SIH26197)
+# Naadchitra (SIH 2026, PS SIH26197)
 
-**Start here: read `README.md` fully** — it is the complete developer handover for
-this project (toolchain, gotchas, architecture, build steps, current status).
-Everything below is a pointer, not a substitute.
+Start with `README.md`, then `docs/DEVELOPER_NOTES.md` for architecture and the Kotlin/Dart contract.
 
 ## Ground rules
 
-- **The UI is FINAL.** The user said "i love the app ui dont change anything ui wise
-  its perfect." Do not change any UI — code changes only behind it.
-- **The Saptak note grid plays REAL 1-second segments** (`assets/audio/note_<id>_<swar>.mp3`).
-  Never revert to pitch-shifting the full clip.
-- App must stay **fully offline**.
+- **The UI is final.** Only change logic behind it.
+- **The Saptak note grid plays real 1-second segments** (`assets/audio/note_<id>_<swar>.mp3`). Never pitch-shift the full clip.
+- The app stays **fully offline**.
+- Preprocessing must stay identical in `tool/compute_embeddings.py`, `MainActivity.kt` and `lib/inference.dart`.
 
-## Environment shortcuts (else builds fail)
+## Environment
 
 ```bash
-export ANDROID_HOME=/home/ayaan/android-sdk
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk      # Java 26 breaks AGP
-FLUTTER=/home/ayaan/development/flutter/bin/flutter # not on default PATH
-VENV=/home/ayaan/code/SIH/paddleocr_venv            # python for tool/*.py
+export JAVA_HOME=/path/to/jdk-21      # JDK 26 breaks the Android Gradle Plugin
+export ANDROID_HOME=/path/to/android-sdk
+flutter build apk --release --split-per-abi
 ```
 
-- Not a git repo. Back up APKs to `backup_apps/` after builds.
-- Device: Redmi 6 Pro (Android 15), package `com.naadchitra.naadchitra`.
-- Debug test image lives at `/data/data/com.naadchitra.naadchitra/cache/test/sitar_test.jpg`
-  (write via `adb shell run-as com.naadchitra.naadchitra`).
-- `lib/main.dart` has a **temporary debug button** — remove it before the final
-  release build (details in `README.md` §9).
-- `CN-study/` is the user's unrelated study material — ignore it.
+Python tooling lives in `tool/` and runs from the `.venv` created by `./setup.sh --regen-ml`.
+
+## Notes
+
+- `lib/main.dart` still has a temporary debug button. Remove it before the final release build.
+- The project is under git. Do not commit APKs, keystores, `.env` or `android/local.properties`. Publish APKs as GitHub Releases.
