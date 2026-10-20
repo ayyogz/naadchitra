@@ -25,7 +25,7 @@ jobs:
           cache: true
           # To pin the exact version you built with, run `flutter --version`
           # locally and uncomment:
-          # flutter-version: '3.xx.x'
+          flutter-version: '3.47.1'
 
       - run: flutter pub get
 
