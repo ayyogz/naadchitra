@@ -1,0 +1,268 @@
+{
+  "sitar": [
+    {
+      "swar": "Sa",
+      "file": "note_sitar_sa.mp3",
+      "start": 11.04,
+      "q": 0.199
+    },
+    {
+      "swar": "Re",
+      "file": "note_sitar_re.mp3",
+      "start": 19.42,
+      "q": 0.183
+    },
+    {
+      "swar": "Ga",
+      "file": "note_sitar_ga.mp3",
+      "start": 27.83,
+      "q": 0.179
+    },
+    {
+      "swar": "Ma",
+      "file": "note_sitar_ma.mp3",
+      "start": 101.68,
+      "q": 0.309
+    },
+    {
+      "swar": "Pa",
+      "file": "note_sitar_pa.mp3",
+      "start": 7.31,
+      "q": 0.159
+    },
+    {
+      "swar": "Dha",
+      "file": "note_sitar_dha.mp3",
+      "start": 15.8,
+      "q": 0.148
+    },
+    {
+      "swar": "Ni",
+      "file": "note_sitar_ni.mp3",
+      "start": 17.45,
+      "q": 0.148
+    },
+    {
+      "swar": "Sa'",
+      "file": "note_sitar_sa2.mp3",
+      "start": 46.78,
+      "q": 0.144
+    }
+  ],
+  "tabla": [
+    {
+      "swar": "Sa",
+      "file": "note_tabla_sa.mp3",
+      "start": 44.18,
+      "q": 0.29,
+      "med_hz": 267.8
+    },
+    {
+      "swar": "Re",
+      "file": "note_tabla_re.mp3",
+      "start": 155.14,
+      "q": 0.206,
+      "med_hz": 269.4
+    },
+    {
+      "swar": "Ga",
+      "file": "note_tabla_ga.mp3",
+      "start": 0.93,
+      "q": 0.18,
+      "med_hz": 269.4
+    },
+    {
+      "swar": "Ma",
+      "file": "note_tabla_ma.mp3",
+      "start": 149.49,
+      "q": 0.164,
+      "med_hz": 269.4
+    },
+    {
+      "swar": "Pa",
+      "file": "note_tabla_pa.mp3",
+      "start": 38.87,
+      "q": 0.183,
+      "med_hz": 271.0
+    },
+    {
+      "swar": "Dha",
+      "file": "note_tabla_dha.mp3",
+      "start": 34.25,
+      "q": 0.173,
+      "med_hz": 271.0
+    },
+    {
+      "swar": "Ni",
+      "file": "note_tabla_ni.mp3",
+      "start": 102.63,
+      "q": 0.157,
+      "med_hz": 284.6
+    },
+    {
+      "swar": "Sa'",
+      "file": "note_tabla_sa2.mp3",
+      "start": 107.04,
+      "q": 0.24,
+      "med_hz": 538.8
+    }
+  ],
+  "veena": [
+    {
+      "swar": "Sa",
+      "file": "note_veena_sa.mp3",
+      "start": 4.42,
+      "q": 0.495
+    },
+    {
+      "swar": "Re",
+      "file": "note_veena_re.mp3",
+      "start": 5.63,
+      "q": 0.297
+    },
+    {
+      "swar": "Ga",
+      "file": "note_veena_ga.mp3",
+      "start": 1.37,
+      "q": 0.258
+    },
+    {
+      "swar": "Ma",
+      "file": "note_veena_ma.mp3",
+      "start": 2.66,
+      "q": 0.308
+    },
+    {
+      "swar": "Pa",
+      "file": "note_veena_pa.mp3",
+      "start": 9.6,
+      "q": 0.254
+    },
+    {
+      "swar": "Dha",
+      "file": "note_veena_dha.mp3",
+      "start": 8.22,
+      "q": 0.148
+    },
+    {
+      "swar": "Ni",
+      "file": "note_veena_ni.mp3",
+      "start": 0.35,
+      "q": 0.135
+    },
+    {
+      "swar": "Sa'",
+      "file": "note_veena_sa2.mp3",
+      "start": 6.63,
+      "q": 0.0
+    }
+  ],
+  "mridangam": [
+    {
+      "swar": "Sa",
+      "file": "note_mridangam_sa.mp3",
+      "start": 28.61,
+      "q": 0.104,
+      "med_hz": 130.9
+    },
+    {
+      "swar": "Re",
+      "file": "note_mridangam_re.mp3",
+      "start": 2.65,
+      "q": 0.06,
+      "med_hz": 137.0
+    },
+    {
+      "swar": "Ga",
+      "file": "note_mridangam_ga.mp3",
+      "start": 49.3,
+      "q": 0.078,
+      "med_hz": 141.5
+    },
+    {
+      "swar": "Ma",
+      "file": "note_mridangam_ma.mp3",
+      "start": 38.28,
+      "q": 0.114,
+      "med_hz": 152.1
+    },
+    {
+      "swar": "Pa",
+      "file": "note_mridangam_pa.mp3",
+      "start": 72.12,
+      "q": 0.082,
+      "med_hz": 154.3
+    },
+    {
+      "swar": "Dha",
+      "file": "note_mridangam_dha.mp3",
+      "start": 73.61,
+      "q": 0.084,
+      "med_hz": 155.6
+    },
+    {
+      "swar": "Ni",
+      "file": "note_mridangam_ni.mp3",
+      "start": 12.11,
+      "q": 0.056,
+      "med_hz": 158.3
+    },
+    {
+      "swar": "Sa'",
+      "file": "note_mridangam_sa2.mp3",
+      "start": 37.21,
+      "q": 0.128,
+      "med_hz": 171.7
+    }
+  ],
+  "bansuri": [
+    {
+      "swar": "Sa",
+      "file": "note_bansuri_sa.mp3",
+      "start": 89.72,
+      "q": 0.846
+    },
+    {
+      "swar": "Re",
+      "file": "note_bansuri_re.mp3",
+      "start": 9.3,
+      "q": 0.218
+    },
+    {
+      "swar": "Ga",
+      "file": "note_bansuri_ga.mp3",
+      "start": 35.35,
+      "q": 0.766
+    },
+    {
+      "swar": "Ma",
+      "file": "note_bansuri_ma.mp3",
+      "start": 30.29,
+      "q": 0.808
+    },
+    {
+      "swar": "Pa",
+      "file": "note_bansuri_pa.mp3",
+      "start": 48.11,
+      "q": 0.765
+    },
+    {
+      "swar": "Dha",
+      "file": "note_bansuri_dha.mp3",
+      "start": 46.65,
+      "q": 0.27
+    },
+    {
+      "swar": "Ni",
+      "file": "note_bansuri_ni.mp3",
+      "start": 52.49,
+      "q": 0.513
+    },
+    {
+      "swar": "Sa'",
+      "file": "note_bansuri_sa2.mp3",
+      "start": 51.22,
+      "q": 0.46
+    }
+  ]
+}
